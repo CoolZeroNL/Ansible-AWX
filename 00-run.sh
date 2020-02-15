@@ -3,8 +3,12 @@
 
 # First of all let’s install docker engine and docker-compose from docker repo.
 
+# update
+yum clean all
+yum -y update
+
 ## Install epel repo and then install jq
-yum install -y epel-release -y && yum install jq
+yum install -y epel-release && yum install -y jq
 
 ## Install docker-ce related packages
 yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -19,8 +23,12 @@ LATEST_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/la
 curl -L "https://github.com/docker/compose/releases/download/$LATEST_VERSION/docker-compose-$(uname -s)-$(uname -m)" > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
+# install
+yum groupinstall -y "Development Tools"
+yum install -y python-devel
+
 ## Install AWX dependencies
-yum install -y python2-pip
+yum install -y python2-pip 
 pip install ansible
 pip install docker-compose
 
@@ -90,13 +98,14 @@ rm -f *awx*.tar.gz
 #############################################################################
 
 ## Change dir to awx and replace awx_official parameter
-cd ~/awx-6.1.0
+# cd ~/awx-6.1.0
+cd ~/awx-$LATEST_AWX
 sed -i -E "s|^#([[:space:]]?)awx_official=false|awx_official=true|g" installer/inventory
 
 #############################################################################
 
 ## Define the default admin username
-sed -i "s|^admin_user=.*|admin_user=awx-admin|g" installer/inventory
+sed -i "s|^admin_user=.*|admin_user=admin|g" installer/inventory
 
 ## Set a password for the admin
 sed -i "s|^admin_password=.*|admin_password=CHANGE_ME|g" installer/inventory
@@ -105,7 +114,8 @@ sed -i "s|^admin_password=.*|admin_password=CHANGE_ME|g" installer/inventory
 
 # Installation
 ## Enter the installer directory.
-cd ~/awx-6.1.0/installer
+# cd ~/awx-6.1.0/installer
+cd ~/awx-$LATEST_AWX/installer
 
 ## Initiate install.yml
 ansible-playbook -i inventory install.yml
