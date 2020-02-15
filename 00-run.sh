@@ -31,6 +31,7 @@ yum install -y python-devel
 yum install -y python2-pip 
 pip install ansible
 pip install zipp
+pip install more_itertools==5.0.0
 pip install docker-compose
 
 #############################################################################
