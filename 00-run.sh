@@ -33,7 +33,7 @@ yum install -y python-devel
 ## Install AWX dependencies
 yum install -y python2-pip 
 pip install ansible
-pip install zipp
+pip install zipp==1.0.0
 pip install more_itertools==5.0.0
 pip install docker-compose
 
