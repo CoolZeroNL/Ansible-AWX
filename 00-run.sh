@@ -3,6 +3,9 @@
 
 # First of all let’s install docker engine and docker-compose from docker repo.
 
+_username=${1:-'admin'}
+_password=${2:-'password'}
+
 # update
 yum clean all
 yum -y update
@@ -107,10 +110,10 @@ sed -i -E "s|^#([[:space:]]?)awx_official=false|awx_official=true|g" installer/i
 #############################################################################
 
 ## Define the default admin username
-sed -i "s|^admin_user=.*|admin_user=admin|g" installer/inventory
+sed -i "s|^admin_user=.*|admin_user="$_username"|g" installer/inventory
 
 ## Set a password for the admin
-sed -i "s|^admin_password=.*|admin_password=CHANGE_ME|g" installer/inventory
+sed -i "s|^admin_password=.*|admin_password="$_password"|g" installer/inventory
 
 #############################################################################
 
