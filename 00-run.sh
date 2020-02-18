@@ -5,6 +5,7 @@
 
 _username=${1:-'admin'}
 _password=${2:-'password'}
+_enablehtpasswd=${3:-'false'}
 
 # update
 yum clean all
@@ -122,9 +123,33 @@ sed -i "s|^admin_password=.*|admin_password="$_password"|g" installer/inventory
 # cd ~/awx-6.1.0/installer
 cd ~/awx-$LATEST_AWX/installer
 
+#############################################################################
+
+if [ "$_enablehtpasswd" = true ] ; then
+
+	## EDIT (Add Basic Auth)
+	yum install -y httpd-tools
+
+	htpasswd -b -c /root/.awx/awxcompose/.htpasswd $_username $_password
+
+	# add .htaccess to the Web: volumes container..
+	sed -i -e '1,/volumes:/{/volumes:/a \     \ - "{{ docker_compose_dir }}/.htpasswd:/etc/nginx/.htpasswd" ' -e '}' /root/awx-$LATEST_AWX/installer/roles/local_docker/templates/docker-compose.yml.j2
+
+	# Add code for Basic Auth into nginx.conf
+	sed -i '/listen 8053 ssl;.*/a \       \ auth_basic "Restricted Content";' /root/awx-$LATEST_AWX/installer/roles/local_docker/templates/nginx.conf.j2
+	sed -i '/auth_basic "Restricted Content";.*/a \       \ auth_basic_user_file /etc/nginx/.htpasswd;' /root/awx-$LATEST_AWX/installer/roles/local_docker/templates/nginx.conf.j2
+
+fi
+
+#############################################################################
+
 ## Initiate install.yml
 ansible-playbook -i inventory install.yml
 
 #############################################################################
 
+echo "Done..."
+echo ""
+echo "Username: "$_username
+echo "Password: "$_password
 
