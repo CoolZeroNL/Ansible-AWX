@@ -148,6 +148,8 @@ ansible-playbook -i inventory install.yml
 
 #############################################################################
 
+systemctl stop firewalld
+
 echo "Done..."
 echo ""
 echo "Username: "$_username
