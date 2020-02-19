@@ -11,13 +11,13 @@ Creating the Custom Credential type in Ansible Tower/ AWX:
 
 2. Navigate to custom credential type and click on “+” to create new.
 <p align="center">
-  <img width="100%" src="./CUSTOM_CREDENTIAL_TYPES.images/Custom-Credential-Types-Add.jpg">
+  <img width="50%" src="./CUSTOM_CREDENTIAL_TYPES.images/Custom-Credential-Types-Add.jpg">
 </p>
 Custom Credential Types - Add
 
 3. Update the input & inject fields with desired values.  In this example, I am creating the custom credential type for Jenkins authentication.
 <p align="center">
-  <img width="100%" src="./CUSTOM_CREDENTIAL_TYPES.images/Custom-Credential-Types-Input-Inject.jpg">
+  <img width="50%" src="./CUSTOM_CREDENTIAL_TYPES.images/Custom-Credential-Types-Input-Inject.jpg">
 </p>
 Custom Credential Types - Input Inject
 
@@ -47,7 +47,7 @@ extra_vars:
 
 4. Here is the newly created credential type.
 <p align="center">
-  <img width="100%" src="./CUSTOM_CREDENTIAL_TYPES.images/New-Credential-Type-Jenkins.jpg">
+  <img width="50%" src="./CUSTOM_CREDENTIAL_TYPES.images/New-Credential-Type-Jenkins.jpg">
 </p>
 New Credential Type - Jenkins
 
@@ -63,7 +63,7 @@ Create a new Credential for Jenkins Portal
 
 6. Select the credential type which we have created for Jenkins.
 <p align="center">
-  <img width="100%" src="./CUSTOM_CREDENTIAL_TYPES.images/Select-Credential-Type-AWX.jpg">
+  <img width="50%" src="./CUSTOM_CREDENTIAL_TYPES.images/Select-Credential-Type-AWX.jpg">
 </p>
 Select Credential Type - AWX
 
@@ -71,7 +71,7 @@ Select Credential Type - AWX
 
 7. Enter Jenkins username & password to authenticate to the portal.
 <p align="center">
-  <img width="100%" src="./CUSTOM_CREDENTIAL_TYPES.images/Enter-Jenkins-User-Name-Password.jpg">
+  <img width="50%" src="./CUSTOM_CREDENTIAL_TYPES.images/Enter-Jenkins-User-Name-Password.jpg">
 </p>
 Enter Jenkins User Name Password
 
