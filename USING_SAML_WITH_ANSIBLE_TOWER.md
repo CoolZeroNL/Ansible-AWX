@@ -1,29 +1,46 @@
 <!-- https://www.ansible.com/blog/using-saml-with-red-hat-ansible-tower -->
 
-Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems to have values from each other. 
+<!-- TOC -->
 
-## Defined in AWX, needed by IBM Cloud Identity:
+- [1. Defined](#1-defined)
+    - [1.1. Defined in AWX, needed by IBM Cloud Identity:](#11-defined-in-awx-needed-by-ibm-cloud-identity)
+    - [1.2. Defined in IBM Cloud Identity, needed by AWX:](#12-defined-in-ibm-cloud-identity-needed-by-awx)
+- [2. How to configure AWX and IBM Cloud Identity](#2-how-to-configure-awx-and-ibm-cloud-identity)
+    - [2.1. AWX](#21-awx)
+        - [2.1.1. (Settings --> System)](#211-settings----system)
+        - [2.1.2. (Settings --> Authentication)](#212-settings----authentication)
+            - [2.1.2.1. SAML Service Provider Organization Info](#2121-saml-service-provider-organization-info)
+            - [2.1.2.2. SAML Service Provider Technical Contact](#2122-saml-service-provider-technical-contact)
+            - [2.1.2.3. SAML Service Provider Support Contact](#2123-saml-service-provider-support-contact)
+            - [2.1.2.4. SAML Enabled Idenity Providers](#2124-saml-enabled-idenity-providers)
+            - [2.1.2.5. Org Mapping](#2125-org-mapping)
+
+<!-- /TOC -->
+
+Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems to have values from each other. 
+# 1. Defined
+## 1.1. Defined in AWX, needed by IBM Cloud Identity:
 
 - Provider ID
 - Assertion Consumer Service URL (HTTP-POST)
 - Service Provider SSO URL
 
-## Defined in IBM Cloud Identity, needed by AWX:
+## 1.2. Defined in IBM Cloud Identity, needed by AWX:
 
 - entity_id
 - url
 - X.509 Certificate
 
-# How to configure AWX and IBM Cloud Identity
-## AWX
-### (Settings --> System)
+# 2. How to configure AWX and IBM Cloud Identity
+## 2.1. AWX
+### 2.1.1. (Settings --> System)
 
 - Set the `Base URL of the Tower Host` 
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
 </p>
 
-### (Settings --> Authentication)
+### 2.1.2. (Settings --> Authentication)
 - Set the Saml Service Provider Entity ID 
 - AWX ACS URL is auto-generated in tower by concatenating Host + /sso/complete/saml/
 <p align="center">
@@ -61,7 +78,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 </p>
 
 
-#### SAML Service Provider Organization Info 
+#### 2.1.2.1. SAML Service Provider Organization Info 
 ```
 {
   "en-US": {
@@ -72,7 +89,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### SAML Service Provider Technical Contact
+#### 2.1.2.2. SAML Service Provider Technical Contact
 ```
 {
   "givenName": "",
@@ -80,7 +97,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### SAML Service Provider Support Contact
+#### 2.1.2.3. SAML Service Provider Support Contact
 ```
 {
   "givenName": "",
@@ -88,7 +105,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### SAML Enabled Idenity Providers
+#### 2.1.2.4. SAML Enabled Idenity Providers
 ```
 {
  "idp": {
@@ -104,7 +121,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### Org Mapping
+#### 2.1.2.5. Org Mapping
 ```
 {
   "Default": {
