@@ -63,16 +63,19 @@ There are six boxes left to fill in for the SAML section of the authentication p
     "name": "who cares it is not important"
   }
 }
+
 | SAML Service Provider Technical Contact | 
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
+
 |SAML Service Provider Support Contact |
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
+
 |IDP|
 {
   "idp": {
@@ -86,6 +89,7 @@ There are six boxes left to fill in for the SAML section of the authentication p
     "attr_first_name": "User.FirstName"
   }
 }
+
 |Org Mapping|
 {
   "Default": {
