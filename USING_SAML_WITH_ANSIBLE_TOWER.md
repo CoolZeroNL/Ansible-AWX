@@ -2,7 +2,6 @@
 
 Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems to have values from each other. 
 
-# Interdependence of AWX and IBM Cloud Identity
 ## Defined in AWX, needed by IBM Cloud Identity:
 
 - Provider ID
