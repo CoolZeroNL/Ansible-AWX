@@ -39,16 +39,15 @@ To summarize, there are now two fields in AWX that will be used by IBM Cloud Ide
 
 * You can set Entity ID to whatever you want.
 
-# Ansible Tower
-Information in this step will not be used in OneLogin, but we need to do it anyway in order to make things work anyway.
+Information in this step will not be used in IBM Cloud Identity, but we need to do it anyway in order to make things work anyway.
 
 On the command-line run:
 ```
 openssl req -new -x509 -days 365 -nodes -out saml.crt -keyout saml.key
 ```
 
-- Paste the contents of saml.crt into the SAML Service Provider Public Certificate box
-- Paste the contents of saml.key into the SAML Service Provider Private Key box
+- Paste the contents of saml.crt into the `SAML Service Provider Public Certificate` box
+- Paste the contents of saml.key into the `SAML Service Provider Private Key` box
 - Save it
 
 <p align="center">
