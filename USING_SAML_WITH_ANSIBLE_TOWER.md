@@ -14,6 +14,10 @@
             - [2.1.2.3. SAML Service Provider Support Contact](#2123-saml-service-provider-support-contact)
             - [2.1.2.4. SAML Enabled Idenity Providers](#2124-saml-enabled-idenity-providers)
             - [2.1.2.5. Org Mapping](#2125-org-mapping)
+        - [2.1.3. Additional Samle Options/Samples:](#213-additional-samle-optionssamples)
+            - [2.1.3.1. SAML Organisation MAP](#2131-saml-organisation-map)
+            - [2.1.3.2. SAML TEAM MAP](#2132-saml-team-map)
+            - [2.1.3.3. SAML Team Attribute Mapping](#2133-saml-team-attribute-mapping)
 
 <!-- /TOC -->
 
@@ -131,8 +135,8 @@ There are some boxes left to fill in for the SAML section of the authentication 
 ```
 
 
-### Additional Samle Options:
-#### SAML Organisation MAP
+### 2.1.3. Additional Samle Options/Samples:
+#### 2.1.3.1. SAML Organisation MAP
 ```
 {
  "Default": {
@@ -154,7 +158,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### SAML TEAM MAP
+#### 2.1.3.2. SAML TEAM MAP
 ```
 {
     "My Team": {
@@ -170,7 +174,7 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-#### SAML Team Attribute Mapping
+#### 2.1.3.3. SAML Team Attribute Mapping
 ```
 {
  "team_org_map": [
