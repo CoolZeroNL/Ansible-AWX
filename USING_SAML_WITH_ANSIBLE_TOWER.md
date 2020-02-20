@@ -65,9 +65,9 @@ There are six boxes left to fill in for the SAML section of the authentication p
 ```
 {
   "en-US": {
-    "url": "https://whocares.com",
-    "displayname": "This is only a name, it is not of importance",
-    "name": "who cares it is not important"
+    "url": "https://domain.nl",
+    "displayname": "",
+    "name": ""
   }
 }
 ```
@@ -75,32 +75,32 @@ There are six boxes left to fill in for the SAML section of the authentication p
 #### SAML Service Provider Technical Contact
 ```
 {
-  "givenName": "Chris Meyers",
-  "emailAddress": "cmeyers@redhat.com"
+  "givenName": "",
+  "emailAddress": ""
 }
 ```
 
 #### SAML Service Provider Support Contact
 ```
 {
-  "givenName": "Chris Meyers",
-  "emailAddress": "cmeyers@redhat.com"
+  "givenName": "",
+  "emailAddress": ""
 }
 ```
 
-#### IDP
+#### SAML Enabled Idenity Providers
 ```
 {
-  "idp": {
-    "attr_last_name": "User.LastName",
-    "attr_username": "User.email",
-    "entity_id": "https://app.onelogin.com/saml/metadata/721709",
-    "attr_user_permanent_id": "name_id",
-    "url": "https://ansible-redhat-dev.onelogin.com/trust/saml2/http-post/sso/721709",
-    "attr_email": "User.email",
-    "x509cert": "MIIEFzCCAv+gAzIBAgIUbGcx6GwUir5qLSP7MmZxq+zEURMwDQYJKoZIhvcNAQEFBQAwWDELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1JlZCBIYXQxFTATBgNVBAsMDE9uZUxvZ2luIElkUDEgMB4GA1UEAwwXT25lTG9naW4gQWNjb3VudCAxMTcwOTcwHhcNMTcxMTA1MTcxMzQxWhcNMjIxMTA2MTcxMzQxWjBYMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHUmVkIEhhdDEVMBMGA1UECwwMT25lTG9naW4gSWRQMSAwHgYDVQQDDBdPbmVMb2dpbiBBY2NvdW50IDExNzA5NzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOv1V+QQg/ypV+d36KyrfjjWi6B2o7D1elu4JrPsbO1uF/zLrls3Cxfur7bHsazLjj2cVtsNa3lrkUMQPHuAJ6RfwyNbHbuvnb/aFC/PprLabNDzITgLFajnUopI+vW1vHy1Qxm26Lsqoa/GDdN+knB8cRVZ3PMn+P16Mo1dOl7G5cCS0Hjw30q4PsCcGCPFoSsQNd4sPs1LbpOh7evR7YCIdWegukr52qNZmoJbBTUdktj+wFiC7a9kDw5Rv9SP64i+nYINJkRHL74/tK6hfCVIKSz90PzN4ekXeuwpIe+riASiSJCfhjYaZANjt24yf6z+lEKhvqf+0S3WIGQFnPkCAwEAAaOB2DCB1TAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQZhIKzMwqqBDjsthZfJRqVpneFbTCBlQYDVR0jBIGNgIGKgBQZhIKzMwqqBDjsthZfJRqVpneFbaFcpFowWDELMAkGA1UEBhMCVVMxEDAOBgNVBAoMB1JlZCBIYXQxFTATBgNVBAsMDE9uZUxvZ2luIElkUDEgMB4GA1UEAwwXT25lTG9naW4gQWNjb3VudCAxMTcwOTeCFGxnMehsFIq+ai0j+zJmcavsxFETMA4GA1UdDwEB/wQEAwIHgDANBgkqhkiG9w0BAQUFAAOCAQEA1gddAIRVNCLMF6Csib95cs4+wlHqOajLBX1WWzfm/Brp52KMBRADwJAI3TEWkdBOlZfK/WSuykAItL/Bx9rFtW0zIMJO6MFAUkdE2s1SdpleUPhBhMzVr4HdSByI2qvnhR6vJTNqv5tzXQUOgqeTYcs1VgGGJHACrOW4WJOlp9u9XlSZtz01o6Ro+Cfmi6wzQd5IUNURqbKN81Puj18SopD0V6+FFoOtk6a+Go3gQ+iuNshGUjaUJmYzRRMk6fbg+WP1Rv8Tjjkr7iqzuqnesKiGmxE2O4gOH26rgTFpo3xaChG9Vm5ugprKdpkckV2SQjpf95G6Ys2IET+lJCrjcA==",
-    "attr_first_name": "User.FirstName"
-  }
+ "idp": {
+  "attr_last_name": "family_name",
+  "attr_first_name": "given_name",
+  "attr_username": "preferred_username",
+  "entity_id": "https://tentant.ice.ibmcloud.com/saml/sps/saml20ip/saml20",
+  "url": "https://tenant.ice.ibmcloud.com/saml/sps/saml20ip/saml20/login",
+  "attr_user_permanent_id": "userID",
+  "x509cert": "MIIDKDCCAhCgAwIBAgIECPYTzTANBgkqhk............",
+  "attr_email": "userID"
+ }
 }
 ```
 
