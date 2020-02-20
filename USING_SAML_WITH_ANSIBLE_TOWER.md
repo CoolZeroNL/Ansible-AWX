@@ -130,4 +130,60 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
+
+### Additional Samle Options:
+#### SAML Organisation MAP
+```
+{
+ "Default": {
+  "users": true
+ },
+ "Test Org": {
+  "users": true,
+  "admins": [
+   "admin@example.com"
+  ]
+ },
+ "Test Org 2": {
+  "users": "/^[^@].*?@example\\.com$/",
+  "admins": [
+   "admin@example.com",
+   "/^tower-[^@]+?@.*$/i"
+  ]
+ }
+}
+```
+
+#### SAML TEAM MAP
+```
+{
+    "My Team": {
+        "organization": "Test Org",
+        "users": ["/^[^@]+?@test\\.example\\.com$/"],
+        "remove": true
+    },
+    "Other Team": {
+        "organization": "Test Org 2",
+        "users": ["/^[^@]+?@test\\.example\\.com$/"],
+        "remove": false
+    }
+}
+```
+
+#### SAML Team Attribute Mapping
+```
+{
+ "team_org_map": [
+  {
+   "organization": "Default",
+   "team": "awx-admins"
+  }
+ ],
+ "saml_attr": "groupIds",
+ "remove": true
+}
+```
+
+
+
 Finished! Now you can login via AWX’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to AWX.
