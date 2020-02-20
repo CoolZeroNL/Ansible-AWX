@@ -30,18 +30,14 @@ Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems t
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image2.png">
 </p>
 
-To summarize, there are now two fields in AWX that will be used by OneLogin
+To summarize, there are now two fields in AWX that will be used by IBM Cloud Identity
 
 | Ansible Tower Field | Value |
 |---------------------|-------|
-| ACS URL	            | https://awx.testing.ansible.com/sso/complete/saml/
-| Entity ID*          | awxsaml
+| ACS URL	            | https://awx.domain.nl/sso/complete/saml/
+| Entity ID*          | awx.domain.nl
 
 * You can set Entity ID to whatever you want.
-
-# config Onelogin ....
-
-removed..
 
 # Ansible Tower
 Information in this step will not be used in OneLogin, but we need to do it anyway in order to make things work anyway.
