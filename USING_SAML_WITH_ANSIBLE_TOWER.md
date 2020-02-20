@@ -33,13 +33,13 @@ The multi-line One Login x.509 cert needs to be made into a single line via http
 - Install Ansible Tower
 - Set the Ansible Tower Host
 <p align="center">
-  <img width="50%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
+  <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
 </p>
 
 - Set the Saml Service Provider Entity ID
 - Ansible Tower ACS URL is auto-generated in tower by concatenating Ansible Tower Host + /sso/complete/saml/
 <p align="center">
-  <img width="50%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image2.png">
+  <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image2.png">
 </p>
 
 
@@ -67,14 +67,14 @@ Paste the contents of saml.key into the SAML Service Provider Private Key box
 Save it
 
 <p align="center">
-  <img width="50%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image4.png">
+  <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image4.png">
 </p>
 
 # Ansible Tower
 There are six boxes left to fill in for the SAML section of the authentication page in Ansible Tower. We will be filling in five of those six boxes.
 
 <p align="center">
-  <img width="50%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image7.png">
+  <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image7.png">
 </p>
 
 | Field | Value |
