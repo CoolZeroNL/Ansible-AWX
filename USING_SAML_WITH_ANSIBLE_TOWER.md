@@ -1,142 +1,61 @@
+<!-- https://www.ansible.com/blog/using-saml-with-red-hat-ansible-tower -->
+
 Getting Ansible Tower to interoperate with OneLogin SAML requires both systems to have values from each other. This blog post is separated into three sections: the interdependent fields of the two systems, a detailed walkthrough of configuring OneLogin and Ansible Tower with both interdependent and per-system fields and values, and the troubleshooting of potential misconfigurations and corresponding error messages in Ansible Tower.
 
-Interdependence of Ansible Tower and OneLogin
-Defined in Ansible Tower, needed by OneLogin:
+# Interdependence of Ansible Tower and OneLogin
+## Defined in Ansible Tower, needed by OneLogin:
 
-ACS URL
-Entity ID
-Defined in OneLogin, needed by Ansible Tower:
+- ACS URL
+- Entity ID
 
-Issuer URL
-SAML 2.0 Endpoint (HTTP)
-X.509 Certificate
+## Defined in OneLogin, needed by Ansible Tower:
 
-Ansible Tower and OneLogin Definitions
+- Issuer URL
+- SAML 2.0 Endpoint (HTTP)
+- X.509 Certificate
 
-Ansible Tower
+## Ansible Tower and OneLogin Definitions
 
-OneLogin
-
-SAML ASSERTION CONSUMER SERVICE (ACS) URL
-
-ACS (Consumer) URL
-
-SAML SERVICE PROVIDER ENTITY ID
-
-Audience
-
-SAML ENABLED IDENTITY PROVIDERS (python dictionary where entity_id is the “magic” key)
-
-Issuer URL
-
-SAML ENABLED IDENTITY PROVIDERS (python dictionary where url is the “magic” key)
-
-SAML 2.0 Endpoint (HTTP)
-
-SAML ENABLED IDENTITY PROVIDERS (python dictionary where x509cert is the “magic” key)*
-
-X.509 Certificate
+|Ansible Tower | OneLogin|
+|-------------|---------------|
+| SAML ASSERTION CONSUMER SERVICE (ACS) URL | ACS (Consumer) URL
+| SAML SERVICE PROVIDER ENTITY ID           |Audience
+| SAML ENABLED IDENTITY PROVIDERS (python dictionary where entity_id is the “magic” key) | Issuer URL
+| SAML ENABLED IDENTITY PROVIDERS (python dictionary where url is the “magic” key) | SAML 2.0 Endpoint (HTTP)
+| SAML ENABLED IDENTITY PROVIDERS (python dictionary where x509cert is the “magic” key)* | X.509 Certificate
 
 The multi-line One Login x.509 cert needs to be made into a single line via https://www.samltool.com/format_x509cert.php
 
 
-How to configure Ansible Tower and OneLogin
-Ansible Tower
-Install Ansible Tower
-Set the Ansible Tower Host
+# How to configure Ansible Tower and OneLogin
+## Ansible Tower
 
+- Install Ansible Tower
+- Set the Ansible Tower Host
 
-
-Set the Saml Service Provider Entity ID
-Ansible Tower ACS URL is auto-generated in tower by concatenating Ansible Tower Host + /sso/complete/saml/
-
-
- 
+- Set the Saml Service Provider Entity ID
+- Ansible Tower ACS URL is auto-generated in tower by concatenating Ansible Tower Host + /sso/complete/saml/
 
 To summarize, there are now two fields in Ansible Tower that will be used by OneLogin
 
-Ansible Tower Field
-
-Value
-
-ACS URL	
-https://towersaml.testing.ansible.com/sso/complete/saml/
-
-Entity ID*
-
-towersaml
+| Ansible Tower Field | Value |
+|---------------------|-------|
+| ACS URL	            | https://towersaml.testing.ansible.com/sso/complete/saml/
+| Entity ID*          |towersaml
 
 * You can set Entity ID to whatever you want.
 
+# config Onelogin ....
 
-OneLogin
-Create a OneLogin account.
-Add the app: SAML Test Connector (IdP w/attr)
-Configure the OneLogin app
+removed..
 
-
-
-OneLogin Field
-
-Value
-
-Recipient
-
-https://towersaml.testing.ansible.com/sso/complete/saml/
-
-Audience
-
-towersaml
-
-ACS
-
-.*
-
-ACS (Consumer) URL
-
-https://towersaml.testing.ansible.com/sso/complete/saml/
-
-
-Ansible Tower
-Information in this step will not be used in OneLogin, but we need to do it anyway in order to make things work anyway.
-
-On the command-line run:
-openssl req -new -x509 -days 365 -nodes -out saml.crt -keyout saml.key
-
-Paste the contents of saml.crt into the SAML Service Provider Public Certificate box
-Paste the contents of saml.key into the SAML Service Provider Private Key box
-Save it
-
-
-
-OneLogin
-Note the two fields in OneLogin, we will need them in Ansible Tower.
-
-Issuer URL
-SAML 2.0 Endpoint (HTTP)
-
-
-
-The 3rd field that we need is the certificate. We need to run the cert through a tool that will make it a single line so that we can put it in a json field in Ansible Tower:
-https://www.samltool.com/format_x509cert.php
-
-X.509 Certificate
-
-
-
-Ansible Tower
+# Ansible Tower
 There are six boxes left to fill in for the SAML section of the authentication page in Ansible Tower. We will be filling in five of those six boxes.
 
 
-
-
-Field
-
-Value
-
-SAML Service Provider Organization Info
-
-
+| Field | Value |
+|-------|-------|
+|SAML Service Provider Organization Info | 
 {
   "en-US": {
     "url": "https://whocares.com",
@@ -144,26 +63,17 @@ SAML Service Provider Organization Info
     "name": "who cares it is not important"
   }
 }
-                
-SAML Service Provider Technical Contact
-
-
+| SAML Service Provider Technical Contact | 
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
-                
-SAML Service Provider Support Contact
-
-
+|SAML Service Provider Support Contact |
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
-                
-IDP
-
-
+|IDP|
 {
   "idp": {
     "attr_last_name": "User.LastName",
@@ -176,14 +86,12 @@ IDP
     "attr_first_name": "User.FirstName"
   }
 }
-                
-Org Mapping
-
-
+|Org Mapping|
 {
   "Default": {
     "users": true
   }
 }
-                
+|
+
 Finished! Now you can login via Ansible Tower’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to Ansible Tower. The section below walks through some common errors that you may run into along the way and reasons for these errors.
