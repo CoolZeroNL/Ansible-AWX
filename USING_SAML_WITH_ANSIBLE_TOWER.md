@@ -60,9 +60,9 @@ There are six boxes left to fill in for the SAML section of the authentication p
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image7.png">
 </p>
 
-| Field | Value |
-|-------|-------|
-|SAML Service Provider Organization Info | 
+
+#### SAML Service Provider Organization Info 
+```
 {
   "en-US": {
     "url": "https://whocares.com",
@@ -70,20 +70,26 @@ There are six boxes left to fill in for the SAML section of the authentication p
     "name": "who cares it is not important"
   }
 }
+```
 
-| SAML Service Provider Technical Contact | 
+#### SAML Service Provider Technical Contact
+```
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
+```
 
-|SAML Service Provider Support Contact |
+#### SAML Service Provider Support Contact
+```
 {
   "givenName": "Chris Meyers",
   "emailAddress": "cmeyers@redhat.com"
 }
+```
 
-|IDP|
+#### IDP
+```
 {
   "idp": {
     "attr_last_name": "User.LastName",
@@ -96,13 +102,15 @@ There are six boxes left to fill in for the SAML section of the authentication p
     "attr_first_name": "User.FirstName"
   }
 }
+```
 
-|Org Mapping|
+#### Org Mapping
+```
 {
   "Default": {
     "users": true
   }
 }
-|
+```
 
 Finished! Now you can login via Ansible Tower’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to Ansible Tower. The section below walks through some common errors that you may run into along the way and reasons for these errors.
