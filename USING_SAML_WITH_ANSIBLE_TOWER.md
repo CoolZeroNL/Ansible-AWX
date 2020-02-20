@@ -1,33 +1,21 @@
 <!-- https://www.ansible.com/blog/using-saml-with-red-hat-ansible-tower -->
 
-Getting AWX to interoperate with OneLogin SAML requires both systems to have values from each other. This blog post is separated into three sections: the interdependent fields of the two systems, a detailed walkthrough of configuring OneLogin and Ansible Tower with both interdependent and per-system fields and values, and the troubleshooting of potential misconfigurations and corresponding error messages in Ansible Tower.
+Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems to have values from each other. 
 
-# Interdependence of AWX and OneLogin
-## Defined in AWX, needed by OneLogin:
+# Interdependence of AWX and IBM Cloud Identity
+## Defined in AWX, needed by IBM Cloud Identity:
 
-- ACS URL
-- Entity ID
+- Provider ID
+- Assertion Consumer Service URL (HTTP-POST)
+- Service Provider SSO URL
 
-## Defined in OneLogin, needed by AWX:
+## Defined in IBM Cloud Identity, needed by AWX:
 
-- Issuer URL
-- SAML 2.0 Endpoint (HTTP)
+- entity_id
+- url
 - X.509 Certificate
 
-## AWX and OneLogin Definitions
-
-|AWX | OneLogin|
-|-------------|---------------|
-| SAML ASSERTION CONSUMER SERVICE (ACS) URL | ACS (Consumer) URL
-| SAML SERVICE PROVIDER ENTITY ID           |Audience
-| SAML ENABLED IDENTITY PROVIDERS (python dictionary where entity_id is the “magic” key) | Issuer URL
-| SAML ENABLED IDENTITY PROVIDERS (python dictionary where url is the “magic” key) | SAML 2.0 Endpoint (HTTP)
-| SAML ENABLED IDENTITY PROVIDERS (python dictionary where x509cert is the “magic” key)* | X.509 Certificate
-
-The multi-line One Login x.509 cert needs to be made into a single line via https://www.samltool.com/format_x509cert.php
-
-
-# How to configure AWX and OneLogin
+# How to configure AWX and IBM Cloud Identity
 ## AWX
 
 - Set the AWX Host (Settings --> System)
