@@ -136,6 +136,8 @@ There are some boxes left to fill in for the SAML section of the authentication 
 
 
 ### 2.1.3. Additional Samle Options/Samples:
+Regex in this samples need to be checked...
+
 #### 2.1.3.1. SAML Organisation MAP
 ```
 {
