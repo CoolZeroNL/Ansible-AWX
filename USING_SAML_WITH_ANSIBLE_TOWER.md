@@ -30,24 +30,23 @@ The multi-line One Login x.509 cert needs to be made into a single line via http
 # How to configure Ansible Tower and OneLogin
 ## Ansible Tower
 
-- Set the Ansible Tower Host (Settings --> System)
+- Set the AWX Host (Settings --> System)
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
 </p>
 
 - Set the Saml Service Provider Entity ID (Settings --> Authentication)
-- Ansible Tower ACS URL is auto-generated in tower by concatenating Ansible Tower Host + /sso/complete/saml/
+- AWX ACS URL is auto-generated in tower by concatenating Host + /sso/complete/saml/
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image2.png">
 </p>
 
-
-To summarize, there are now two fields in Ansible Tower that will be used by OneLogin
+To summarize, there are now two fields in AWX that will be used by OneLogin
 
 | Ansible Tower Field | Value |
 |---------------------|-------|
-| ACS URL	            | https://towersaml.testing.ansible.com/sso/complete/saml/
-| Entity ID*          |towersaml
+| ACS URL	            | https://awx.testing.ansible.com/sso/complete/saml/
+| Entity ID*          | awxsaml
 
 * You can set Entity ID to whatever you want.
 
@@ -59,11 +58,13 @@ removed..
 Information in this step will not be used in OneLogin, but we need to do it anyway in order to make things work anyway.
 
 On the command-line run:
+```
 openssl req -new -x509 -days 365 -nodes -out saml.crt -keyout saml.key
+```
 
-Paste the contents of saml.crt into the SAML Service Provider Public Certificate box
-Paste the contents of saml.key into the SAML Service Provider Private Key box
-Save it
+- Paste the contents of saml.crt into the SAML Service Provider Public Certificate box
+- Paste the contents of saml.key into the SAML Service Provider Private Key box
+- Save it
 
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image4.png">
