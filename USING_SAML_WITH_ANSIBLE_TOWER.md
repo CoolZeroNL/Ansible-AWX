@@ -30,13 +30,12 @@ The multi-line One Login x.509 cert needs to be made into a single line via http
 # How to configure Ansible Tower and OneLogin
 ## Ansible Tower
 
-- Install Ansible Tower
-- Set the Ansible Tower Host
+- Set the Ansible Tower Host (Settings --> System)
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
 </p>
 
-- Set the Saml Service Provider Entity ID
+- Set the Saml Service Provider Entity ID (Settings --> Authentication)
 - Ansible Tower ACS URL is auto-generated in tower by concatenating Ansible Tower Host + /sso/complete/saml/
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image2.png">
