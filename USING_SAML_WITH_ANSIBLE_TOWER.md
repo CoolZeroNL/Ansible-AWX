@@ -71,7 +71,7 @@ openssl req -new -x509 -days 365 -nodes -out saml.crt -keyout saml.key
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image4.png">
 </p>
 
-There are some boxes left to fill in for the SAML section of the authentication page in Ansible Tower. 
+There are some boxes left to fill in for the SAML section of the authentication page in AWX. 
 
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image7.png">
@@ -130,4 +130,4 @@ There are some boxes left to fill in for the SAML section of the authentication 
 }
 ```
 
-Finished! Now you can login via Ansible Tower’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to Ansible Tower. The section below walks through some common errors that you may run into along the way and reasons for these errors.
+Finished! Now you can login via AWX’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to AWX.
