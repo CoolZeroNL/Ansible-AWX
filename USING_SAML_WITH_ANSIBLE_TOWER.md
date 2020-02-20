@@ -18,7 +18,7 @@ Getting AWX to interoperate with IBM Cloud Identity SAML requires both systems t
 # How to configure AWX and IBM Cloud Identity
 ## AWX
 
-- Set the AWX Host (Settings --> System)
+- Set the `Base URL of the Tower Host` (Settings --> System)
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image1.png">
 </p>
