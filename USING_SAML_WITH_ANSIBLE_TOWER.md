@@ -1,22 +1,22 @@
 <!-- https://www.ansible.com/blog/using-saml-with-red-hat-ansible-tower -->
 
-Getting Ansible Tower to interoperate with OneLogin SAML requires both systems to have values from each other. This blog post is separated into three sections: the interdependent fields of the two systems, a detailed walkthrough of configuring OneLogin and Ansible Tower with both interdependent and per-system fields and values, and the troubleshooting of potential misconfigurations and corresponding error messages in Ansible Tower.
+Getting AWX to interoperate with OneLogin SAML requires both systems to have values from each other. This blog post is separated into three sections: the interdependent fields of the two systems, a detailed walkthrough of configuring OneLogin and Ansible Tower with both interdependent and per-system fields and values, and the troubleshooting of potential misconfigurations and corresponding error messages in Ansible Tower.
 
-# Interdependence of Ansible Tower and OneLogin
-## Defined in Ansible Tower, needed by OneLogin:
+# Interdependence of AWX and OneLogin
+## Defined in AWX, needed by OneLogin:
 
 - ACS URL
 - Entity ID
 
-## Defined in OneLogin, needed by Ansible Tower:
+## Defined in OneLogin, needed by AWX:
 
 - Issuer URL
 - SAML 2.0 Endpoint (HTTP)
 - X.509 Certificate
 
-## Ansible Tower and OneLogin Definitions
+## AWX and OneLogin Definitions
 
-|Ansible Tower | OneLogin|
+|AWX | OneLogin|
 |-------------|---------------|
 | SAML ASSERTION CONSUMER SERVICE (ACS) URL | ACS (Consumer) URL
 | SAML SERVICE PROVIDER ENTITY ID           |Audience
@@ -27,8 +27,8 @@ Getting Ansible Tower to interoperate with OneLogin SAML requires both systems t
 The multi-line One Login x.509 cert needs to be made into a single line via https://www.samltool.com/format_x509cert.php
 
 
-# How to configure Ansible Tower and OneLogin
-## Ansible Tower
+# How to configure AWX and OneLogin
+## AWX
 
 - Set the AWX Host (Settings --> System)
 <p align="center">
