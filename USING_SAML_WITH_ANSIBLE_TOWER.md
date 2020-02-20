@@ -54,8 +54,7 @@ openssl req -new -x509 -days 365 -nodes -out saml.crt -keyout saml.key
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image4.png">
 </p>
 
-# Ansible Tower
-There are six boxes left to fill in for the SAML section of the authentication page in Ansible Tower. We will be filling in five of those six boxes.
+There are six boxes left to fill in for the SAML section of the authentication page in Ansible Tower. 
 
 <p align="center">
   <img width="75%" src="./USING_SAML_WITH_ANSIBLE_TOWER.images/image7.png">
