@@ -15,9 +15,10 @@
             - [2.1.2.4. SAML Enabled Idenity Providers](#2124-saml-enabled-idenity-providers)
             - [2.1.2.5. Org Mapping](#2125-org-mapping)
         - [2.1.3. Additional Samle Options/Samples:](#213-additional-samle-optionssamples)
-            - [2.1.3.1. SAML Organisation MAP](#2131-saml-organisation-map)
-            - [2.1.3.2. SAML TEAM MAP](#2132-saml-team-map)
-            - [2.1.3.3. SAML Team Attribute Mapping](#2133-saml-team-attribute-mapping)
+            - [2.1.3.1. SAML Enabled Idenity Providers](#2131-saml-enabled-idenity-providers)
+            - [2.1.3.2. SAML Organisation MAP](#2132-saml-organisation-map)
+            - [2.1.3.3. SAML TEAM MAP](#2133-saml-team-map)
+            - [2.1.3.4. SAML Team Attribute Mapping](#2134-saml-team-attribute-mapping)
 
 <!-- /TOC -->
 
@@ -138,7 +139,27 @@ There are some boxes left to fill in for the SAML section of the authentication 
 ### 2.1.3. Additional Samle Options/Samples:
 Regex in this samples need to be checked...
 
-#### 2.1.3.1. SAML Organisation MAP
+Issues:
+- https://github.com/ansible/awx/issues/5303  (Flagging users as superusers and auditors in SAML integration)
+- 
+
+#### 2.1.3.1. SAML Enabled Idenity Providers
+```
+{
+ "saml_ms_adfs": {
+  "attr_last_name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+  "entity_id": "http://signin.server.com/adfs/services/trust",
+  "x509cert": "<redacted>",
+  "url": "https://signin.server.com/adfs/ls/",
+  "attr_username": "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname",
+  "attr_email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+  "attr_first_name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+  "attr_user_permanent_id": "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
+ }
+}
+```
+
+#### 2.1.3.2. SAML Organisation MAP
 ```
 {
  "Default": {
@@ -160,7 +181,7 @@ Regex in this samples need to be checked...
 }
 ```
 
-#### 2.1.3.2. SAML TEAM MAP
+#### 2.1.3.3. SAML TEAM MAP
 ```
 {
     "My Team": {
@@ -176,7 +197,7 @@ Regex in this samples need to be checked...
 }
 ```
 
-#### 2.1.3.3. SAML Team Attribute Mapping
+#### 2.1.3.4. SAML Team Attribute Mapping
 ```
 {
  "team_org_map": [
