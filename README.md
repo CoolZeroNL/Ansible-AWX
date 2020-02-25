@@ -2,7 +2,7 @@
 <!-- https://medium.com/swlh/ansible-awx-installation-5861b115455a -->
 
 <p align="center">
-  <img width="50%" src="./Ansible-AWX-object-hierarchy.png">
+  <img width="50%" src="./README.images/Ansible-AWX-object-hierarchy.png">
 </p>
 
 ## Prerequisites:
