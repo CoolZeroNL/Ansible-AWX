@@ -213,7 +213,7 @@ Issues:
 
 or
 
-This need chanes to sso/pipeline.py and sso/fields.py
+This need chanes to sso/pipeline.py and sso/fields.py [see](https://github.com/CoolZeroNL/awx/commit/6b703f7bcfb8910088ee7e71b5f3fd850174313b)
 ```
 {
  "team_org_map": [
