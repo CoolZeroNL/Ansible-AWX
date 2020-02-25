@@ -211,6 +211,34 @@ Issues:
 }
 ```
 
+or
+
+This need chanes to sso/pipeline.py and sso/fields.py
+```
+{
+ "team_org_map": [
+  {
+   "organization": "awx-members",
+   "team": "awx-members"
+  },
+  {
+   "admins": true,
+   "organization": "awx-admins",
+   "team": "awx-admins"
+  },
+  {
+   "superusers": true,
+   "organization": "awx-superusers",
+   "team": "awx-superusers"
+  }
+ ],
+ "admins_remove": true,
+ "remove": true,
+ "saml_attr": "groupIds",
+ "superusers_remove": true
+}
+```
+
 
 
 Finished! Now you can login via AWX’s UI with any user accounts that you normally login with via SAML and they will be automatically imported to AWX.
