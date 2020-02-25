@@ -1,5 +1,5 @@
 # Ansible-AWX
-https://medium.com/swlh/ansible-awx-installation-5861b115455a
+<!-- https://medium.com/swlh/ansible-awx-installation-5861b115455a -->
 
 <p align="center">
   <img width="50%" src="./Ansible-AWX-object-hierarchy.png">
